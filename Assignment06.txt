@@ -1,0 +1,109 @@
+ASSIGNMENT-06
+
+* NPM packages.
+  NPM is a package manager for Node.js packages, or modules if you like.Node Package Manager (npm) provides following
+  two main functionalities: Online repositories for node.js packages/modules which are searchable on search.nodejs.org. 
+  Command line utility to install Node.js packages, do version management and dependency management of Node.js packages.
+  To install npm we use command
+  npm install npm@latest -g
+  To install npm package we use -- npm install <package-name>
+  A list of all the public package names on npm.
+  Includes scoped packages
+  Sorted by dependent count
+  Uses npm's replicate.npmjs.com service.
+  Updated daily.
+NPM=node package manager
+NPM is For Node.js packages, or modules.
+The NPM program is installed on computer when you install Node.js.
+
+Lists of all the packages in NPM:
+React,Pro-typed,moments,Express,Request,Lodash,Async,Chalk,Commander,Debug.
+colors,jquery,minimist,@types/node,@babel/runtime,aws-sdk,js-yaml,ora,@angular/core.
+
+* How to convert buffer to JSON.
+JSON is short for Javascript object Notation,and is a way to store information in an organized,easy-to-access manner.
+Ex:let bufferOne = Buffer.from('this is buffer.');
+console.log(bufferOne);
+let json = JSON.stringify(bufferOne);
+console.log(json);
+
+
+* Node Js Buffers.
+1.Node Js provides buffer class to store raw data similar to an array of integer.
+2.Buffer class is used because pure javascript is not nice to binary data.
+3.Buffer class is global class.
+4.It can be accessed in application without using the buffer module. 
+
+
+* Creating a buffer
+A buffer can be created or constucted in many ways,but there are three mostly used method to create a buffer.
+creating a buffer uninitiated.
+ex:var buf=new Buffer(3);
+creating a buffer from an array.
+ex:buf=new Buffer([3,6,9]);
+creating a buffer from string.
+ex:buf=new Buffer("hello good morning");
+
+
+* Writing a buffer
+The method of writing into a node buffer is 
+syntax:buf.write(string[, offset][, length][,encoding])
+Ex:buf = new Buffer(256);len = buf.write(" hello well done");
+console.log("length:"+ len);
+
+
+* Reading a buffer
+The method to read data into buffer is
+syntax:buf.toString([encoding][, start][, end])
+Ex:buf =new Buffer(26);
+for(var i=0;i<26;i++) {
+buf[i] = i + 97;
+}
+console.log(buf.toString('ascii'));
+console.log(buf.tostring('ascii',0,5));
+console.log(buf.toString('utf8',0,5));
+console.log(buf.tostring(undefined,0,5));
+
+
+* working on all possible filesystem in node js
+Reading a file in node js
+var fs = require('fs')
+fs.readfile('app.js','utf8',function(err,data){
+console.log(data);
+});
+
+
+* Writing data into a file in node js
+fs.writefile('log.js','console.log("helloworld")',function(err){
+console.log("file created");
+});
+
+* Deleting data from a file in node js
+fs.unlink('log.js',function(err){
+console.log("file delected");
+});
+
+* Rename the file 
+fs.rename('file.txt','node.txt',function(err){
+if (err) throw err;
+console.log('file Renamed');
+});
+
+* Append a file in node js
+fs.appendFile('file.txt','content', function(err) {
+if (err) throw err;
+console.log('saved');
+});
+
+* Create an empty file in node js
+fs.open('ramu.txt', 'w',function (err, file) {
+if (err) throw err;
+console.log('saved');
+});
+
+* Synchronous methods of file system in nodejs
+var fs=require('fs');
+let data="This is a node js program";
+fs.writeFilesync("file.txt",data);
+console.log("File has been created successfully");
+console.log(fs.readFileSync('file.txt','utf8')); 
